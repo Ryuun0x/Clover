@@ -22,7 +22,7 @@ local ROUTES = {
     ["108890465381067"] = { name = "Trading World",  file = "TradingWorld.lua" },
     ["97598239454123"]  = { name = "Garden World 2", file = "void.lua" },
     ["77085202503540"]  = { name = "Garden World 2", file = "void.lua" },
-    ["107778070777162"] = { name = "Steal An Egg",   file = "CAE.lua" },
+    ["107778070777162"] = { name = "Steal An Egg",   file = "CloverHub(StealAnEgg).lua" },
 }
 
 local success, loaderError = pcall(function()
