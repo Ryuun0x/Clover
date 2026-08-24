@@ -1,6 +1,6 @@
 -- VoidHub main loader
 
-local BASE_URL = "https://raw.githubusercontent.com/Ryuun0x/VoidHub/refs/heads/main/"
+local BASE_URL = "https://raw.githubusercontent.com/Ryuun0x/Clover/refs/heads/main/"
 
 local ROUTES = {
     ["126884695634066"] = { name = "Garden World", file = "GardenWorld.lua" },
@@ -14,24 +14,24 @@ local ROUTES = {
 
 local route = ROUTES[tostring(game.PlaceId)]
 if not route then
-    warn(string.format("[VoidHub] Unsupported game. PlaceId: %s", tostring(game.PlaceId)))
+    warn(string.format("[CloverHub] Unsupported game. PlaceId: %s", tostring(game.PlaceId)))
     return
 end
 
 local scriptUrl = BASE_URL .. route.file
 local fetched, source = pcall(game.HttpGet, game, scriptUrl)
 if not fetched then
-    warn(string.format("[VoidHub] Failed to download %s: %s", route.name, tostring(source)))
+    warn(string.format("[CloverHub] Failed to download %s: %s", route.name, tostring(source)))
     return
 end
 
 local chunk, compileError = loadstring(source)
 if not chunk then
-    warn(string.format("[VoidHub] Failed to compile %s: %s", route.name, tostring(compileError)))
+    warn(string.format("[CloverHub] Failed to compile %s: %s", route.name, tostring(compileError)))
     return
 end
 
 local ran, runtimeError = pcall(chunk)
 if not ran then
-    warn(string.format("[VoidHub] Failed to start %s: %s", route.name, tostring(runtimeError)))
+    warn(string.format("[CloverHub] Failed to start %s: %s", route.name, tostring(runtimeError)))
 end
